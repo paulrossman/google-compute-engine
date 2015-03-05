@@ -14,6 +14,11 @@
 
 include Google::Gce
 
+# Support whyrun
+def whyrun_supported?
+  true
+end
+
 action :set do
   server = gce.get_server(new_resource.name, new_resource.zone_name)
   fingerprint = server.body['tags']['fingerprint']
